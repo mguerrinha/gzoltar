@@ -29,6 +29,7 @@ import com.gzoltar.report.fl.config.ConfigHTMLReportFormatter;
 import com.gzoltar.report.fl.formatter.IFaultLocalizationReportFormatter;
 import com.gzoltar.report.fl.formatter.html.FaultLocalizationHTMLReport;
 import com.gzoltar.report.fl.formatter.txt.FaultLocalizationTxtReport;
+import com.gzoltar.sfl.formulas.ImproveMultiplication;
 
 public class FaultLocalizationReportBuilder {
 
@@ -56,6 +57,9 @@ public class FaultLocalizationReportBuilder {
       FaultLocalization fl =
           new FaultLocalization(flFamily.getFaultLocalizationFamily(), flFamily.getFormulas());
       ISpectrum spectrum = fl.diagnose(buildLocation, agentConfigs, dataFile);
+      if (flFamily.getImproveMultiplication()) {
+        ImproveMultiplication.improvement(spectrum);
+      }
 
       // which formatter of report?
       for (IReportFormatter formatter : flFamily.getFormatters()) {

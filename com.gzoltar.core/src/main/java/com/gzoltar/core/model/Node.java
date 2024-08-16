@@ -1,16 +1,16 @@
 /**
  * Copyright (C) 2020 GZoltar contributors.
- * 
+ *
  * This file is part of GZoltar.
- * 
+ *
  * GZoltar is free software: you can redistribute it and/or modify it under the terms of the GNU
  * Lesser General Public License as published by the Free Software Foundation, either version 3 of
  * the License, or (at your option) any later version.
- * 
+ *
  * GZoltar is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
  * the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser
  * General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License along with GZoltar. If
  * not, see <https://www.gnu.org/licenses/>.
  */
@@ -42,8 +42,10 @@ public class Node {
 
   private Map<String, Double> suspiciousnessValues = null;
 
+  private Map<String, Integer> elementsStatistics = null;
+
   /**
-   * 
+   *
    * @param name
    * @param lineNumber
    * @param type
@@ -53,7 +55,7 @@ public class Node {
   }
 
   /**
-   * 
+   *
    * @param name
    * @param type
    * @param parent
@@ -67,7 +69,7 @@ public class Node {
   }
 
   /**
-   * 
+   *
    * @return
    */
   public String getName() {
@@ -75,7 +77,7 @@ public class Node {
   }
 
   /**
-   * 
+   *
    * @param name
    */
   public void setName(final String name) {
@@ -83,7 +85,7 @@ public class Node {
   }
 
   /**
-   * 
+   *
    * @return
    */
   public String getShortName() {
@@ -96,16 +98,16 @@ public class Node {
   }
 
   /**
-   * 
+   *
    * @return
    */
   public String getNameWithLineNumber() {
     return this.getName()
-        + (this.type != NodeType.LINE ? NodeType.LINE.getSymbol() + this.lineNumber : "");
+            + (this.type != NodeType.LINE ? NodeType.LINE.getSymbol() + this.lineNumber : "");
   }
 
   /**
-   * 
+   *
    * @return
    */
   public int getLineNumber() {
@@ -113,7 +115,7 @@ public class Node {
   }
 
   /**
-   * 
+   *
    * @return
    */
   public NodeType getNodeType() {
@@ -121,7 +123,7 @@ public class Node {
   }
 
   /**
-   * 
+   *
    * @param type
    */
   public void setNodeType(final NodeType type) {
@@ -129,7 +131,7 @@ public class Node {
   }
 
   /**
-   * 
+   *
    * @return
    */
   public boolean isStartBlock() {
@@ -137,7 +139,7 @@ public class Node {
   }
 
   /**
-   * 
+   *
    * @param startBlock
    */
   public void setStartBlock(final boolean startBlock) {
@@ -145,7 +147,7 @@ public class Node {
   }
 
   /**
-   * 
+   *
    * @return
    */
   public int getDepth() {
@@ -153,7 +155,7 @@ public class Node {
   }
 
   /**
-   * 
+   *
    * @param parent
    */
   public void setParent(Node parent) {
@@ -170,7 +172,7 @@ public class Node {
   }
 
   /**
-   * 
+   *
    * @return
    */
   public Node getParent() {
@@ -178,7 +180,7 @@ public class Node {
   }
 
   /**
-   * 
+   *
    * @return
    */
   public boolean isRoot() {
@@ -186,7 +188,7 @@ public class Node {
   }
 
   /**
-   * 
+   *
    * @return
    */
   public List<Node> getChildren() {
@@ -194,7 +196,7 @@ public class Node {
   }
 
   /**
-   * 
+   *
    * @param name
    * @return
    */
@@ -203,7 +205,7 @@ public class Node {
   }
 
   /**
-   * 
+   *
    * @param type
    * @return
    */
@@ -217,7 +219,7 @@ public class Node {
   }
 
   /**
-   * 
+   *
    * @return
    */
   public boolean isLeaf() {
@@ -225,7 +227,7 @@ public class Node {
   }
 
   /**
-   * 
+   *
    * @return
    */
   public List<Node> getLeafNodes() {
@@ -245,7 +247,7 @@ public class Node {
   }
 
   /**
-   * 
+   *
    * @param formulaName
    * @param suspiciousnessValue
    */
@@ -257,7 +259,7 @@ public class Node {
   }
 
   /**
-   * 
+   *
    * @return
    */
   public boolean hasSuspiciousnessValues() {
@@ -268,7 +270,7 @@ public class Node {
   }
 
   /**
-   * 
+   *
    * @return
    */
   public Map<String, Double> getSuspiciousnessValues() {
@@ -276,7 +278,7 @@ public class Node {
   }
 
   /**
-   * 
+   *
    * @param formulaName
    * @return
    */
@@ -294,12 +296,22 @@ public class Node {
   }
 
   /**
-   * 
+   *
    * @return
    */
   public int getNumberOfSuspiciousnessValues() {
     assert this.suspiciousnessValues != null;
     return this.suspiciousnessValues.size();
+  }
+
+  public void addElementsStatistics(final Map<String, Integer> statistics) {
+    if (this.elementsStatistics == null) {
+      this.elementsStatistics = statistics;
+    }
+  }
+
+  public Map<String, Integer> getElementsStatistics() {
+    return this.elementsStatistics;
   }
 
   /**
