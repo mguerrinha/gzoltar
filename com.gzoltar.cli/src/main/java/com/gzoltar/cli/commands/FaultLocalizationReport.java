@@ -63,8 +63,8 @@ public class FaultLocalizationReport extends AbstractReport {
       required = false)
   private String formula = SFLFormulas.OCHIAI.name();
 
-  @Option(name = "--improvemult", usage = "fault localization formula", metaVar = "<improvemult>",  required = false)
-  private Boolean improvemult = false;
+  @Option(name = "--improveMultiplication", usage = "multiplication to improve general score", metaVar = "<improveMultiplication>",  required = false)
+  private Boolean improveMultiplication = false;
 
   @Option(name = "--metric", usage = "fault localization ranking metric (use ':' to define more than one metric)", metaVar = "<metric>",
       required = false)
@@ -101,6 +101,7 @@ public class FaultLocalizationReport extends AbstractReport {
     this.agentConfigs.setInclDeprecatedMethods(this.inclDeprecatedMethods);
     this.agentConfigs.setIncludes(this.includes);
     this.agentConfigs.setExcludes(this.excludes);
+    this.agentConfigs.setImproveMultiplication(this.improveMultiplication);
 
     final ConfigFaultLocalizationFamily configFlFamily = new ConfigFaultLocalizationFamily();
 
@@ -110,7 +111,6 @@ public class FaultLocalizationReport extends AbstractReport {
             FaultLocalizationFamily.valueOf(this.family.toUpperCase(locale)));
     // set formula
     configFlFamily.setFormulas(Arrays.asList(this.formula.split("\\:")));
-    configFlFamily.setImproveMultiplication(this.improvemult);
     // set metrics
     configFlFamily.setMetrics(Arrays.asList(this.metric.split("\\:")));
     // set formatters

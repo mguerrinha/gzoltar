@@ -188,7 +188,6 @@ java -cp $BUILD_DIR:$JUNIT_JAR:$HAMCREST_JAR:$GZOLTAR_CLI_JAR \
     --outputDirectory "$BUILD_DIR" \
     --family "sfl" \
     --formula "ochiai" \
-    --improvemult \
     --metric "entropy" \
     --formatter "txt" || die "Generation of fault-localization report has failed!"
 

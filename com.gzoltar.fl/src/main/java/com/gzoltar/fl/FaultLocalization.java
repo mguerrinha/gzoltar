@@ -24,6 +24,7 @@ import com.gzoltar.core.spectrum.FilteredSpectrum;
 import com.gzoltar.core.spectrum.ISpectrum;
 import com.gzoltar.core.spectrum.SpectrumReader;
 import com.gzoltar.sfl.SFL;
+import com.gzoltar.sfl.formulas.ImproveMultiplication;
 
 public class FaultLocalization {
 
@@ -64,6 +65,10 @@ public class FaultLocalization {
     ISpectrum filteredSpectrum = filter.filter(spectrum);
 
     this.fl.diagnose(filteredSpectrum);
+    System.out.println(agentConfigs.getImproveMultiplication());
+    if (agentConfigs.getImproveMultiplication()) {
+      ImproveMultiplication.improvement(filteredSpectrum);
+    }
 
     return filteredSpectrum;
   }

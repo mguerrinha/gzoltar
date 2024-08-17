@@ -36,8 +36,6 @@ public class ConfigFaultLocalizationFamily {
 
   private List<IReportFormatter> formatters;
 
-  private Boolean improveMultiplication = false;
-
   public void setName(String faultLocalizationFamilyName) {
     this.faultLocalizationFamily =
             FaultLocalizationFamily.valueOf(faultLocalizationFamilyName.toUpperCase(Locale.ENGLISH));
@@ -101,11 +99,4 @@ public class ConfigFaultLocalizationFamily {
     return !this.formatters.isEmpty();
   }
 
-  public void setImproveMultiplication(Boolean improveMultiplication) {
-    this.improveMultiplication = improveMultiplication;
-  }
-
-  public Boolean getImproveMultiplication() {
-    return this.improveMultiplication;
-  }
 }

@@ -148,6 +148,10 @@ public final class AgentConfigs {
 
   public static final boolean DEFAULT_INCLDEPRECATEDMETHODS = true;
 
+  public static final String IMPROVEMULTIPLICATION_KEY = "improveMultiplication";
+
+  public static final boolean DEFAULT_IMPROVEMULTIPLICATION = false;
+
   /**
    * Specifies which level of instrumentation should be performed. Default is <code>full</code>.
    */
@@ -464,6 +468,14 @@ public final class AgentConfigs {
    */
   public void setInclDeprecatedMethods(final boolean inclDeprecatedMethods) {
     this.setConfig(INCLDEPRECATEDMETHODS_KEY, inclDeprecatedMethods);
+  }
+
+  public void setImproveMultiplication(final boolean improveMultiplication) {
+    this.setConfig(IMPROVEMULTIPLICATION_KEY, improveMultiplication);
+  }
+
+  public Boolean getImproveMultiplication() {
+    return this.getConfig(IMPROVEMULTIPLICATION_KEY, DEFAULT_IMPROVEMULTIPLICATION);
   }
 
   /**
