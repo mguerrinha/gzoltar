@@ -36,7 +36,7 @@ public class ConfigFaultLocalizationFamily {
 
   private List<IReportFormatter> formatters;
 
-  private Boolean improveMultiplication;
+  private Boolean improveMultiplication = false;
 
   public void setName(String faultLocalizationFamilyName) {
     this.faultLocalizationFamily =
