@@ -65,7 +65,6 @@ public class FaultLocalization {
     ISpectrum filteredSpectrum = filter.filter(spectrum);
 
     this.fl.diagnose(filteredSpectrum);
-    System.out.println(agentConfigs.getImproveMultiplication());
     if (agentConfigs.getImproveMultiplication()) {
       ImproveMultiplication.improvement(filteredSpectrum);
     }
