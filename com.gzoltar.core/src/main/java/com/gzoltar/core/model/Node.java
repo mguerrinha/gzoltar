@@ -42,7 +42,6 @@ public class Node {
 
   private Map<String, Double> suspiciousnessValues = null;
 
-  private Map<String, Integer> elementsStatistics = null;
 
   /**
    *
@@ -293,25 +292,6 @@ public class Node {
     assert this.suspiciousnessValues != null;
     assert this.suspiciousnessValues.containsKey(formulaName);
     return this.suspiciousnessValues.get(formulaName);
-  }
-
-  /**
-   *
-   * @return
-   */
-  public int getNumberOfSuspiciousnessValues() {
-    assert this.suspiciousnessValues != null;
-    return this.suspiciousnessValues.size();
-  }
-
-  public void addElementsStatistics(final Map<String, Integer> statistics) {
-    if (this.elementsStatistics == null) {
-      this.elementsStatistics = statistics;
-    }
-  }
-
-  public Map<String, Integer> getElementsStatistics() {
-    return this.elementsStatistics;
   }
 
   /**

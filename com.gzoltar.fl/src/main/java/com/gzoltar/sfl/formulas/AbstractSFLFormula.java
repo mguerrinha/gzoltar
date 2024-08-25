@@ -29,7 +29,7 @@ public abstract class AbstractSFLFormula implements ISFLFormula {
   /**
    * {@inheritDoc}
    */
-  public void diagnose(final ISpectrum spectrum) {
+  public void diagnose(final ISpectrum spectrum, boolean improveMultiplication) {
     int n00 = 0;
     int n01 = 0;
     int n10 = 0;
@@ -57,13 +57,12 @@ public abstract class AbstractSFLFormula implements ISFLFormula {
           }
         }
 
-        probe.getNode().addSuspiciousnessValue(this.getName(), this.compute(n00, n01, n10, n11));
-        Map<String, Integer> elementsStatistics = new HashMap<>();
-        elementsStatistics.put("n00", n00);
-        elementsStatistics.put("n01", n01);
-        elementsStatistics.put("n10", n10);
-        elementsStatistics.put("n11", n11);
-        probe.getNode().addElementsStatistics(elementsStatistics);
+        double suspScore = this.compute(n00, n01, n10, n11);
+        if (improveMultiplication) {
+          suspScore *= ((double) n11 / (n11 + n01));
+        }
+        probe.getNode().addSuspiciousnessValue(this.getName(), suspScore);
+
       }
     }
   }

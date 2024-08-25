@@ -29,7 +29,6 @@ import com.gzoltar.report.fl.config.ConfigHTMLReportFormatter;
 import com.gzoltar.report.fl.formatter.IFaultLocalizationReportFormatter;
 import com.gzoltar.report.fl.formatter.html.FaultLocalizationHTMLReport;
 import com.gzoltar.report.fl.formatter.txt.FaultLocalizationTxtReport;
-import com.gzoltar.sfl.formulas.ImproveMultiplication;
 
 public class FaultLocalizationReportBuilder {
 
