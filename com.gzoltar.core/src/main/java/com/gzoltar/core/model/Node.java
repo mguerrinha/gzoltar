@@ -42,6 +42,8 @@ public class Node {
 
   private Map<String, Double> suspiciousnessValues = null;
 
+  private Boolean containsMathOperator = false;
+
   /**
    * 
    * @param name
@@ -358,6 +360,14 @@ public class Node {
     builder.append(this.parent, node.parent);
 
     return builder.isEquals();
+  }
+
+  public Boolean getContainsMathOperator() {
+    return containsMathOperator;
+  }
+
+  public void setContainsMathOperator(Boolean containsMathOperator) {
+    this.containsMathOperator = containsMathOperator;
   }
 
 }
