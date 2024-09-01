@@ -44,6 +44,8 @@ public class Node {
 
   private Boolean containsMathOperator = false;
 
+  private Boolean haveFailedTest = false;
+
   /**
    * 
    * @param name
@@ -370,4 +372,11 @@ public class Node {
     this.containsMathOperator = containsMathOperator;
   }
 
+  public Boolean getHaveFailedTest() {
+    return haveFailedTest;
+  }
+
+  public void setHaveFailedTest(Boolean haveFailedTest) {
+    this.haveFailedTest = haveFailedTest;
+  }
 }
